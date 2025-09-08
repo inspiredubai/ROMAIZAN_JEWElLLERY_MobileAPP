@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ROMAIZAN JEWElLLERY</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <!-- <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="color-palette-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="home-outline"></ion-icon>
+      </ion-button> -->
+      <ion-button fill="clear" (click)="openPopover($event)">
+        <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+      </ion-button>
+
+      <!-- Popover component -->
+      <ion-popover [isOpen]="popoverOpen" [event]="popoverEvent" (ionPopoverDidDismiss)="popoverOpen = false"[dismissOnSelect]="true">
+        <ng-template>
+          <ion-list>
+            <!-- <ion-item (click)="selectOption('profile')">Profile</ion-item>
+            <ion-item (click)="selectOption('settings')">Settings</ion-item> -->
+            <ion-item (click)="selectOption('logout')" style="cursor:pointer;">Logout</ion-item>
+            <ion-item (click)="selectOption('changePassword')" style="cursor:pointer;">Change Password</ion-item>
+
+          </ion-list>
+        </ng-template>
+      </ion-popover>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  <div class="content-wrapper">
+
+     <h2 class="section-title">Reports</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="3">
+          <ion-card class="custom-card" (click)="onCheckIn()">
+            <ion-card-content>CheckIn</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="3">
+          <ion-card class="custom-card" (click)="onCheckOut()">
+            <ion-card-content>CheckOut</ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" size-md="3">
+          <ion-card class="custom-card" (click)="onattendancesummary()">
+            <ion-card-content>Attendance Summary</ion-card-content>
+          </ion-card>
+        </ion-col>
+         <ion-col size="12" size-md="3">
+          <ion-card class="custom-card" (click)="onattendancedetail()">
+            <ion-card-content>Attendance Detail</ion-card-content>
+          </ion-card>
+        </ion-col> -->
+<!--  </ion-row>
+    </ion-grid>
+
+     <h2 class="section-title">Smart Punch</h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card class="custom-card" (click)="onsmartpunch()">
+            <ion-card-content>SMART PUNCH - ONE TO ONE</ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content> -->
+<!-- <ion-content>
+  <ion-card no-margin>
+    <ion-card-header>
+      <ion-card-title><b>Smart Punch</b></ion-card-title>
+    </ion-card-header>
+    <div class="content-wrapper">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="2">
+            <ion-card class="custom-card"  [disabled]="isCheckedIn" (click)="onCheckIn()">
+              <ion-card-content>CheckIn</ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="2">
+            <ion-card class="custom-card" [disabled]="!isCheckedIn" (click)="onCheckOut()">
+              <ion-card-content>CheckOut</ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="2">
+            <ion-card class="custom-card" (click)="onattendancesummary()">
+              <ion-card-content>Attendance Summary</ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="2">
+            <ion-card class="custom-card" (click)="onleaveEntry()">
+              <ion-card-content>Leave Entry</ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <ion-card class="custom-card" (click)="onsmartpunch()">
+              <ion-card-content>SMART PUNCH - ONE TO ONE</ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+
+      </ion-grid>
+
+    </div>
+  </ion-card>
+</ion-content> -->
+ 
+<ion-content>
+     <ion-card-header>
+      <ion-card-title class="ion-text-center"><b>Smart Punch</b></ion-card-title>
+    </ion-card-header>
+    <!-- <ion-grid>
+      <ion-row class="ion-justify-content-start ion-align-items-stretch">
+        <ng-container *ngFor="let item of cardItems">
+          <ion-col
+            size="12"
+            size-sm="6"
+            size-md="4"
+            size-lg="3"
+            class="ion-padding">
+            <ion-card class="custom-card" 
+                      [class.disabled]="item.disabled"
+                      (click)="!item.disabled && item.action()">
+              <ion-card-content class="ion-text-center">{{ item.label }}</ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid> -->
+  
+  <ion-grid>
+<ion-row>
+  <ion-col size="6" *ngFor="let item of cardItems">
+    <ion-card 
+      [disabled]="item.disabled" 
+      (click)="item.action()" 
+      button 
+      class="square-card">
+      <ion-card-content class="card-content">
+        <ion-icon [name]="item.icon" class="card-icon"></ion-icon>
+        <p>{{ item.label }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+</ion-row>
+
+</ion-grid>
+
+ </ion-content>
+

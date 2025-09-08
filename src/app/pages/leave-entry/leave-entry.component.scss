@@ -1,0 +1,355 @@
+ion-item {
+    width: 100%;
+    max-width: 400px; /* Prevents items from stretching too much */
+    margin: auto; /* Centers items */
+  }
+  
+  ion-card {
+    margin: 10px; /* Adds spacing */
+    top:40px;
+    
+   }
+  
+  
+  @media (max-width: 768px) {
+    ion-grid {
+      padding: 0 10px;
+    }
+  
+    ion-card {
+      margin: 5px;
+      top: 0;
+    }
+  
+    ion-item {
+      max-width: 100%;
+    }
+  }
+  ion-toolbar {
+    --background: #3b57c1;
+    --color: white;
+  }
+  
+  .content-wrapper {
+    padding: 1em;
+  }
+  
+  .section-title {
+    color: #3b57c1;
+    font-size: 1.2em;
+    margin: 1em 0 0.5em 0;
+    font-weight: bold;
+  }
+  
+  .card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+    ion-content {
+  --background: linear-gradient(to bottom, #1976d2 0%, #a3c5e1 50%, #ebf4fb 100%);
+}
+  ion-card.custom-card {
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  ion-card.custom-card:hover {
+    transform: scale(1.05);
+  }
+  
+  ion-card-content {
+    color: #3b57c1;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  ion-title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+  
+  ion-icon {
+    color: white;
+    font-size: 1.2em;
+  }
+  
+  ion-toolbar {
+    --background: #3b57c1;
+    --color: white;
+  
+    --border-color: #eeecee;
+    --border-width: 1px 0;
+    --border-style: double;
+  
+    // --min-height: 20px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    }
+    ::ng-deep{
+       :root {
+        --ion-color-custom-primary: #007bff; /* Blue */
+        --ion-color-custom-success: #28a745; /* Green */
+        --ion-color-custom-danger: #dc3545; /* Red */
+        --ion-color-custom-warning: #ffc107; /* Yellow */
+      }
+       
+    }
+    ion-input {
+        cursor: pointer;
+      }
+      
+      ion-icon {
+        // margin-left: 8px;
+        cursor: pointer;
+      }
+      ion-item {
+        --padding-start: 0;
+        --inner-padding-end: 0;
+      }
+      
+      ion-checkbox {
+        margin-right: 8px;
+      }
+      ion-modal#example-modal .wrapper {
+        margin-bottom: 10px;
+      }
+      
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3880ff;
+        color: white;
+        padding: 5px 6px;
+        border-radius: 8px 8px 0 0;
+      }
+      
+      .table-container {
+        max-height: 70vh;
+        overflow-y: auto;
+      }
+      
+      .ion-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      
+      .ion-table th, .ion-table td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .ion-table th {
+        background-color: #f4f4f4;
+      }
+
+      .table-wrapper {
+        max-height: 80vh;
+        overflow-y: auto;
+        padding: 16px;
+      }
+      
+      .scrollable-table {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        overflow: auto;
+      }
+      
+      .ion-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .ion-table th, .ion-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+        background-color: #fff;
+      }
+      
+      .ion-table th {
+        position: sticky;
+        top: 0;
+        background-color: var(--ion-color-primary);
+        color: #fff;
+        z-index: 10;
+        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+      }
+      
+      .ion-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      
+      .ion-table tr:hover {
+        background-color: #f1f1f1;
+      }
+      
+
+
+
+ion-content {
+  --padding-top: 0;
+  --padding-bottom: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.table-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.scrollable-table {
+  overflow-x: auto;  /* enables horizontal scroll */
+  overflow-y: auto;  /* enables vertical scroll */
+  max-height: 100%;
+  border: 1px solid #ddd;
+}
+
+.ion-table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%; /* ensure table fills container */
+}
+
+.ion-table th,
+.ion-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  white-space: nowrap; /* prevents text from wrapping */
+  text-align: left;
+  font-size: 14px;
+}
+.leave-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 60px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+ion-card-title {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--ion-color-primary);
+}
+
+ion-item {
+  --highlight-color-focused: var(--ion-color-primary);
+  --padding-start: 8px;
+  --inner-padding-end: 8px;
+  --background: #f9f9f9;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+ion-button {
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.leave-type-item {
+  width: 100%;
+  border-radius: 8px;
+  --inner-padding-start: 12px;
+  --inner-padding-end: 12px;
+  margin-top: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.table-wrapper {
+  padding: 1.5rem 1rem;
+}
+
+.table-header {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0078d4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  ion-icon {
+    font-size: 22px;
+    color: #0078d4;
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.styled-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.styled-table thead {
+  background-color: #0078d4;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+  white-space: nowrap;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f4faff;
+  transition: background-color 0.3s ease;
+}
+
+.styled-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-delete-button {
+  background-color: #dc3545;       /* Bootstrap red */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.custom-delete-button:hover {
+  background-color: #c82333;       /* Darker red on hover */
+  transform: scale(1.05);          /* Slight grow effect */
+}
+
+.custom-delete-button:active {
+  transform: scale(1);
+}
