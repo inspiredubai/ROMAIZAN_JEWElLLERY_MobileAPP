@@ -1,6 +1,7 @@
 <ion-header>
+  <div class="mydiv"  style=" height: 45px; background-color: #015796;"></div>
   <ion-toolbar>
-    <ion-title>ROMAIZAN JEWElLLERY</ion-title>
+    <ion-title>ROMAIZAN JEWELLERY</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -16,7 +17,8 @@
       </ion-button>
 
       <!-- Popover component -->
-      <ion-popover [isOpen]="popoverOpen" [event]="popoverEvent" (ionPopoverDidDismiss)="popoverOpen = false"[dismissOnSelect]="true">
+      <ion-popover [isOpen]="popoverOpen" [event]="popoverEvent" (ionPopoverDidDismiss)="popoverOpen = false"
+        [dismissOnSelect]="true">
         <ng-template>
           <ion-list>
             <!-- <ion-item (click)="selectOption('profile')">Profile</ion-item>
@@ -115,12 +117,12 @@
     </div>
   </ion-card>
 </ion-content> -->
- 
+
 <ion-content>
-     <ion-card-header>
-      <ion-card-title class="ion-text-center"><b>Smart Punch</b></ion-card-title>
-    </ion-card-header>
-    <!-- <ion-grid>
+  <ion-card-header>
+    <ion-card-title class="ion-text-center"><b>Smart Punch</b></ion-card-title>
+  </ion-card-header>
+  <!-- <ion-grid>
       <ion-row class="ion-justify-content-start ion-align-items-stretch">
         <ng-container *ngFor="let item of cardItems">
           <ion-col
@@ -138,24 +140,17 @@
         </ng-container>
       </ion-row>
     </ion-grid> -->
-  
+
   <ion-grid>
-<ion-row>
-  <ion-col size="6" *ngFor="let item of cardItems">
-    <ion-card 
-      [disabled]="item.disabled" 
-      (click)="item.action()" 
-      button 
-      class="square-card">
-      <ion-card-content class="card-content">
-        <ion-icon [name]="item.icon" class="card-icon"></ion-icon>
-        <p>{{ item.label }}</p>
-      </ion-card-content>
-    </ion-card>
-  </ion-col>
-</ion-row>
-
-</ion-grid>
-
- </ion-content>
-
+    <ion-row>
+      <ion-col size="6" *ngFor="let item of cardItems">
+        <ion-card [disabled]="item.disabled" (click)="item.action()" button class="square-card">
+          <ion-card-content class="card-content">
+            <ion-icon [name]="item.icon" class="card-icon"></ion-icon>
+            <p>{{ item.label }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
