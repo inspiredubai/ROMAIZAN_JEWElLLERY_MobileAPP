@@ -41,6 +41,7 @@
   --ion-color-tertiary: #7044ff;
   /* Add more light colors here */
 }
+
 // body.dark {
 //   --ion-color-primary: #222428;
 //   --ion-color-secondary: #3dc2ff;
@@ -48,15 +49,27 @@
 //   /* Add more dark colors here */
 // }
 .custom-toast {
-    --width: auto;
-    --max-width: 250px;
-    text-align: left;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-  }
- 
-ion-toolbar{
-    --background: #015796 !important;
-    --color: white;
+  --width: auto;
+  --max-width: 250px;
+  text-align: left;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
+
+ion-toolbar {
+  --background: #015796 !important;
+  --color: white;
+  --border-color: #015796 !important;
+}
+/* global.scss */
+.mydiv {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mydiv {
+    display: block;
+  }
+}
+
