@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 
 })
 export class SmartPunchComponent implements OnInit {
-
   // ngOnInit(): void {
   //     }
   // center!: google.maps.LatLngLiteral;
@@ -75,8 +74,9 @@ export class SmartPunchComponent implements OnInit {
   //     console.log('Updated Marker Position:', this.markerPosition);
   //   }
   // }
+
   center!: google.maps.LatLngLiteral;
-  markerPosition!: google.maps.LatLngLiteral;
+  markerPosition: google.maps.LatLngLiteral  = { lat: 0, lng: 0 };;
   zoom = 15;
   popoverOpen = false;
   popoverEvent: any = null;
@@ -283,12 +283,15 @@ async setDefaultLocation() {
     const data = await res.json();
     this.center = { lat: data.latitude, lng: data.longitude };
     this.markerPosition = { ...this.center };
+        console.log("locaton",this.markerPosition)
+
     console.log('IP-based fallback location:', this.center);
   } catch (e) {
     // 📌 If IP fails, fallback to Lahore
     console.error('IP lookup failed, using hardcoded fallback');
     this.center = { lat: 31.4933248, lng: 74.3079936 };
     this.markerPosition = { ...this.center };
+    console.log("locaton",this.markerPosition)
   }
 }
 
