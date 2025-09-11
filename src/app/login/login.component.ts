@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     });
   }
   goToChangePassword() {
-    this.router.navigate(['/login/passwordchange']); // Adjust the route path accordingly
+    this.router.navigate(['/login/passwordchange']);
   }
   onLogin(){
     this.isLoading = true;
