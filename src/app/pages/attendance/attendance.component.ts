@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Geolocation } from '@capacitor/geolocation';
 import { LocalNotifications } from '@capacitor/local-notifications';
+import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-attendance',
   templateUrl: './attendance.component.html',
@@ -21,18 +23,30 @@ export class AttendanceComponent implements OnInit {
 
   
   geofence = {
-    lat: 29.9941834,    
-    lng: 72.6772166,    
+    lat: 32.868968,    
+    lng: 74.244743,    
     radius: 200,   
   };
 
-  constructor() {}
+  constructor(private alertCtrl: AlertController) {}
 
   ngOnInit() {}
 
   ngAfterViewInit() {
     this.loadMap();
+    this.showWelcomePopup();   // show popup when admin opens map
   }
+
+  async showWelcomePopup() {
+    const alert = await this.alertCtrl.create({
+      header: 'Geofence Map',
+      message: 'This map shows your shop geofence. You can monitor entry and exit here.',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
+ 
+   
 
   loadMap() {
     const mapEl = document.getElementById('map') as HTMLElement;
