@@ -6,6 +6,7 @@ import { AttendanceDetailComponent } from './attendance-detail/attendance-detail
 import { CheckoutComponent } from './checkout/checkout.component';
 import { LeaveEntryComponent } from './leave-entry/leave-entry.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { FacidComponent } from './facid/facid.component';
 
  
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
    {
     path: 'attendance',
     component: AttendanceComponent 
+  },
+     {
+    path: 'facid',
+    component: FacidComponent 
   }
 ];
 
