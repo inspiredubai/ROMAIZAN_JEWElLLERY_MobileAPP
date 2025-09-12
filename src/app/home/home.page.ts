@@ -544,7 +544,7 @@ export class HomePage {
       Active: [false],
     });
 
-    await this.requestLocationPermission(); // ✅ Request permission first
+    await this.requestLocationPermission();  
 
     this.dataservice.data$.subscribe(data => {
       this.receivedData = data;
@@ -559,7 +559,7 @@ export class HomePage {
   }
 
   goToChangePassword() {
-    this.router.navigate(['/login/passwordchange']); // Adjust the route path accordingly
+    this.router.navigate(['/login/passwordchange']);  
   }
 
   async requestLocationPermission() {
@@ -677,7 +677,9 @@ export class HomePage {
   onleaveEntry() {
     this.router.navigate(['/leaveentry']);
   }
-
+ onfaceid() {
+    this.router.navigate(['/facid']);
+  }
   saveLocation(lat: number, lng: number) {
     const locationData = {
       userId: this.userDetails?.userId || 0,
@@ -748,12 +750,19 @@ get cardItems() {
       action: () => this.onleaveEntry(),
       disabled: false
     },
+        {
+      label: 'Face ID',
+      icon: 'finger-print-outline',
+      action: () => this.onfaceid(),
+      disabled: false
+    },
     {
       label: 'SMART PUNCH - ONE TO ONE',
       icon: 'finger-print-outline',
       action: () => this.onsmartpunch(),
       disabled: false
     }
+
   ];
 }
 
