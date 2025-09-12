@@ -23,8 +23,11 @@ export class AttendanceComponent implements OnInit {
 
   
   geofence = {
-    lat: 32.868968,    
-    lng: 74.244743,    
+    // lat: 32.868968,    
+    // lng: 74.244743,    
+    lat: 30.51,
+
+   lng: 72.47,
     radius: 200,   
   };
 
@@ -54,7 +57,7 @@ export class AttendanceComponent implements OnInit {
       center: { lat: this.geofence.lat, lng: this.geofence.lng },
       zoom: 16,
     });
-
+debugger
     // 🔹 Shop marker
     this.geofenceMarker = new google.maps.Marker({
       position: { lat: this.geofence.lat, lng: this.geofence.lng },
@@ -94,7 +97,6 @@ export class AttendanceComponent implements OnInit {
 
         const isInside = distance <= this.geofence.radius;
         this.geofenceStatus = isInside ? '✅ Inside Geofence' : '❌ Outside Geofence';
-
         // 🔹 Trigger notification when status changes
         if (isInside && this.lastStatus !== 'inside') {
           await LocalNotifications.schedule({
@@ -166,6 +168,8 @@ export class AttendanceComponent implements OnInit {
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    debugger
+
     return R * c;
   }
 
