@@ -402,10 +402,10 @@ export class HomePage implements OnInit, OnDestroy {
   isInside = false;
 
   geofence = {
-    lat: 25.2700291,
+    lat: 25.2700291,   //romizan
     lng: 55.2983818,
-    // lat: 30.06,
-    // lng: 71.19,
+    // lat: 29.9940807,
+    // lng: 72.6794903,  afsar
     radius: 200, // meters
   };
 
@@ -654,6 +654,7 @@ export class HomePage implements OnInit, OnDestroy {
     const a =
       Math.sin(dLat / 2) ** 2 +
       Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * Math.sin(dLon / 2) ** 2;
+      debugger
     return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
