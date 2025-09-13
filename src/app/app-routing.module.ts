@@ -8,6 +8,7 @@ import { AttendanceDetailComponent } from './pages/attendance-detail/attendance-
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { LeaveEntryComponent } from './pages/leave-entry/leave-entry.component';
 import { PasswordChangeComponent } from './login/password-change/password-change.component';
+import { FacidComponent } from './pages/facid/facid.component';
 
 const routes: Routes = [
    
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'attendancedetail',
         component:  AttendanceDetailComponent
+      },
+        {
+        path: 'facid',
+        component:   FacidComponent
       }
 
 ];

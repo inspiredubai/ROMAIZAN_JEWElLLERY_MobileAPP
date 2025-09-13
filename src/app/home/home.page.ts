@@ -582,6 +582,9 @@ export class HomePage implements OnInit, OnDestroy {
   onLeaveEntry() {
     this.router.navigate(['/leaveentry']);
   }
+  onfaceid(){
+       this.router.navigate(['/facid']);
+  }
 
   get cardItems() {
     return [
@@ -590,6 +593,12 @@ export class HomePage implements OnInit, OnDestroy {
       { label: 'Attendance Summary', icon: 'calendar-outline', action: () => this.onAttendanceSummary(), disabled: false },
       { label: 'Leave Entry', icon: 'document-text-outline', action: () => this.onLeaveEntry(), disabled: false },
       { label: 'SMART PUNCH - ONE TO ONE', icon: 'finger-print-outline', action: () => this.onSmartPunch(), disabled: false },
+             {
+      label: 'Face ID',
+      icon: 'finger-print-outline',
+      action: () => this.onfaceid(),
+      disabled: false
+    },
     ];
   }
 
