@@ -4,6 +4,7 @@ import { NavController, ToastController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../services/toast.service';
+import { NativeBiometric } from 'capacitor-native-biometric';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ import { ToastService } from '../services/toast.service';
 export class LoginComponent implements OnInit {
   loginForm: any;
   isLoading = false;
+   status: string = '';
   constructor(private router: Router, private toastController: ToastController, private navCtrl: NavController,   
     private apiLogin: LoginService,
     private fb: UntypedFormBuilder,
@@ -45,5 +47,17 @@ export class LoginComponent implements OnInit {
         }
       });
   }
-  
+    async authenticateWithBiometric() {
+    try {
+      await NativeBiometric.verifyIdentity({
+        reason: 'For quick and secure login',
+        title: 'Biometric Authentication',
+      });
+
+      // If it doesn’t throw → authentication was successful
+      this.status = '✅ Authenticated successfully!';
+    } catch (err) {
+      this.status = '❌ Authentication failed: ' + err;
+    }
+  }
 }
