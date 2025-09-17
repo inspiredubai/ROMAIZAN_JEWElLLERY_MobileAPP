@@ -9,6 +9,7 @@ import { NativeBiometric, BiometryType } from 'capacitor-native-biometric';
 
 })
 export class FacidComponent  implements OnInit {
+  status: any;
 
   constructor() { }
 
@@ -19,13 +20,19 @@ export class FacidComponent  implements OnInit {
 
     if (!result.isAvailable) {
       console.log("❌ Biometric authentication not available");
+                  this.status= " Biometric authentication not available"
+
       return;
     }
 
     if (result.biometryType === BiometryType.FACE_ID) {
       console.log("✅ Face ID is available");
+            this.status= " Face ID is available"
+
     } else {
       console.log("Available biometrics:", result.biometryType);
+            this.status= "Available biometrics:", result.biometryType
+
     }
   }
 
@@ -37,10 +44,11 @@ export class FacidComponent  implements OnInit {
         subtitle: "Secure Login",
         description: "Use Face ID to quickly log in",
       });
-
+      this.status= " Authenticated with Face ID!"
       console.log("🎉 Authenticated with Face ID!");
     } catch (error) {
       console.log("❌ Face ID failed:", error);
+       this.status= " Face ID failed",error
     }
   }
 }
