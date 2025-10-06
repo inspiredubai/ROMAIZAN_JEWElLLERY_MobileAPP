@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NavController, ToastController } from '@ionic/angular';
 import { LoginService } from '../services/login.service';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
@@ -59,5 +59,9 @@ export class LoginComponent implements OnInit {
     } catch (err) {
       this.status = '❌ Authentication failed: ' + err;
     }
+  }
+  registeruseromponent(){
+    // debugger
+     this.router.navigate(['/login/registeruser']);
   }
 }
