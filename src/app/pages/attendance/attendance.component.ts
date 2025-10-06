@@ -8,10 +8,9 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './attendance.component.html',
   styleUrls: ['./attendance.component.scss'],
   standalone: false,
-
 })
 export class AttendanceComponent implements OnInit {
- geofenceStatus: string = 'Unknown';
+  geofenceStatus: string = 'Unknown';
   watching: boolean = false;
   intervalId: any = null;
   lastStatus: 'inside' | 'outside' | null = null;
@@ -21,14 +20,13 @@ export class AttendanceComponent implements OnInit {
   geofenceCircle: any;
   userMarker: any;
 
-  
   geofence = {
-    // lat: 32.868968,    
-    // lng: 74.244743,    
+    // lat: 32.868968,
+    // lng: 74.244743,
     lat: 30.51,
 
-   lng: 72.47,
-    radius: 200,   
+    lng: 72.47,
+    radius: 200,
   };
 
   constructor(private alertCtrl: AlertController) {}
@@ -37,19 +35,18 @@ export class AttendanceComponent implements OnInit {
 
   ngAfterViewInit() {
     this.loadMap();
-    this.showWelcomePopup();   // show popup when admin opens map
+    this.showWelcomePopup(); // show popup when admin opens map
   }
 
   async showWelcomePopup() {
     const alert = await this.alertCtrl.create({
       header: 'Geofence Map',
-      message: 'This map shows your shop geofence. You can monitor entry and exit here.',
+      message:
+        'This map shows your shop geofence. You can monitor entry and exit here.',
       buttons: ['OK'],
     });
     await alert.present();
   }
- 
-   
 
   loadMap() {
     const mapEl = document.getElementById('map') as HTMLElement;
@@ -57,7 +54,6 @@ export class AttendanceComponent implements OnInit {
       center: { lat: this.geofence.lat, lng: this.geofence.lng },
       zoom: 16,
     });
-debugger
     // 🔹 Shop marker
     this.geofenceMarker = new google.maps.Marker({
       position: { lat: this.geofence.lat, lng: this.geofence.lng },
@@ -65,7 +61,7 @@ debugger
       title: 'Romaizan Jewellery',
     });
 
-     this.geofenceCircle = new google.maps.Circle({
+    this.geofenceCircle = new google.maps.Circle({
       map: this.map,
       center: { lat: this.geofence.lat, lng: this.geofence.lng },
       radius: this.geofence.radius,
@@ -96,7 +92,9 @@ debugger
         );
 
         const isInside = distance <= this.geofence.radius;
-        this.geofenceStatus = isInside ? '✅ Inside Geofence' : '❌ Outside Geofence';
+        this.geofenceStatus = isInside
+          ? '✅ Inside Geofence'
+          : '❌ Outside Geofence';
         // 🔹 Trigger notification when status changes
         if (isInside && this.lastStatus !== 'inside') {
           await LocalNotifications.schedule({
@@ -124,9 +122,8 @@ debugger
 
         this.lastStatus = isInside ? 'inside' : 'outside';
 
-        
         if (this.userMarker) {
-          this.userMarker.setMap(null);  
+          this.userMarker.setMap(null);
         }
         this.userMarker = new google.maps.Marker({
           position: { lat: latitude, lng: longitude },
@@ -140,7 +137,6 @@ debugger
           },
           title: 'You',
         });
-
       } catch (err) {
         console.error('Geolocation error:', err);
       }
@@ -157,7 +153,12 @@ debugger
     this.lastStatus = null;
   }
 
-  private getDistanceFromLatLonInM(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  private getDistanceFromLatLonInM(
+    lat1: number,
+    lon1: number,
+    lat2: number,
+    lon2: number
+  ): number {
     const R = 6371e3; // meters
     const dLat = this.deg2rad(lat2 - lat1);
     const dLon = this.deg2rad(lon2 - lon1);
@@ -168,8 +169,6 @@ debugger
         Math.sin(dLon / 2) *
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    debugger
-
     return R * c;
   }
 
@@ -180,7 +179,4 @@ debugger
   ngOnDestroy() {
     this.stopGeofencing();
   }
-
 }
-
-
