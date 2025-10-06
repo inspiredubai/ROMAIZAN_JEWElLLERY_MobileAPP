@@ -226,8 +226,9 @@ h1 {
     margin-top: 22px;
 
 }
-
-/* login form */
+.register{
+text-decoration: underline;
+ }
 .icon-login {
   font-size: 20px;
   color: #3880ff;
@@ -237,27 +238,26 @@ h1 {
   margin-top: 30px;
 }
 
-/* Face ID card */
-.face-lock-wrapper {
+ .face-lock-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 18px;
+  align-items: right;
+  margin-top: 1opx;
 }
 
 .face-lock-card {
-  background: #e8e4e5;
+  background: #e9ecff;
   border-radius: 12px;
   padding: 18px 12px;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  width: 220px;
+  width: 100px;
   height: auto;
 }
 
 .face-lock-icon {
   width: 70px;
-  height: 70px;
+  height: 50px;
   margin: 0 auto 10px;
 }
 

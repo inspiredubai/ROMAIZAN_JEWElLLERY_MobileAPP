@@ -1,0 +1,46 @@
+<ion-content fullscreen>
+  <div class="container-login">
+    <div class="login-wrapper">
+      <div class="login-box">
+        <ion-grid [formGroup]="registerForm">
+
+          <!-- <ion-item>
+        <ion-label position="floating">ID</ion-label>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
+      </ion-item> -->
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input type="email" formControlName="Username" required placeholder="User Name"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" formControlName="Password" required placeholder="Password"></ion-input>
+            </ion-item>
+          </ion-list>
+          <br>
+          <!-- <div *ngIf="!faceFound" class="error-text">
+            Face not found
+           </div> -->
+          <!-- 
+          <ion-button expand="block" color="medium" (click)="captureFace()">
+            Capture Images
+          </ion-button> -->
+          <ion-button expand="block" (click)="loadPhoto()">
+            Take or Select Photo
+          </ion-button>
+
+          <div *ngIf="photo">
+            <ion-card>
+              <img [src]="photo" alt="User Photo">
+            </ion-card>
+          </div>
+          <div>{{status}}</div>
+          <ion-button expand="block" shape="round" color="warning" (click)="login()">
+            Regiser
+          </ion-button>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+</ion-content>

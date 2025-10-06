@@ -1,0 +1,40 @@
+ion-content {
+    --background: #99cff4;
+}
+.container-login {
+  position: absolute;
+  top: 50%;               /* centers vertically */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+}
+.login-wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {   
+     background-color: #ffffff;
+
+    width: 100%;
+    max-width: 650px;
+    text-align: center;    border: 1px solid gainsboro;
+padding: 50px 90px;
+border-radius: 5px;}
+
+.error-text {
+    color: red;
+    margin: 12px 0;
+}
+
+.signup-text {
+    margin-top: 20px;
+    font-size: 14px;
+}

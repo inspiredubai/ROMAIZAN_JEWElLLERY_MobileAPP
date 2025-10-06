@@ -7,6 +7,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { HomePageModule } from '../home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PasswordChangeComponent } from './password-change/password-change.component';
+import { RegisterUserComponent } from './register-user/register-user.component';
  
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
     ReactiveFormsModule,
     HttpClientModule
    ],
-  declarations: [LoginComponent,PasswordChangeComponent],
+  declarations: [LoginComponent,PasswordChangeComponent,RegisterUserComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginModule {}
