@@ -51,6 +51,7 @@ registerForm: any;
       });
 
       this.photo = image.dataUrl ?? null;
+  
       console.log('Photo captured!');
       this.status= 'Photo captured!';
     } catch (err) {
