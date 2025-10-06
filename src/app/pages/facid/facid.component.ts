@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { NativeBiometric, BiometryType } from 'capacitor-native-biometric';
-  // import { registerPlugin } from '@capacitor/core';
-import { NativeBiometric } from 'capacitor-native-biometric';
-
-// const BiometricAuth = registerPlugin('BiometricAuth') as any;
+import { NativeBiometric, BiometryType } from 'capacitor-native-biometric';
  
 @Component({
   selector: 'app-facid',
@@ -13,82 +9,46 @@ import { NativeBiometric } from 'capacitor-native-biometric';
 
 })
 export class FacidComponent  implements OnInit {
-  // status: anyl;
+  status: any;
 
   constructor() { }
 
   ngOnInit() {}
-   status: string = '';
- 
-  // async checkBiometric() {
-  //   try {
-  //     const result = await NativeBiometric.isAvailable();
 
-  //     if (!result.isAvailable) {
-  //       this.status = '❌ Biometrics not available';
-  //       return;
-  //     }
+  async checkBiometric() {
+    const result = await NativeBiometric.isAvailable();
 
-  //     this.status = `✅ Biometrics available: ${result.biometryType}`;
-  //   } catch (err) {
-  //     this.status = '❌ Error checking biometrics: ' + err;
-  //   }
-  // }
+    if (!result.isAvailable) {
+      console.log("❌ Biometric authentication not available");
+                  this.status= " Biometric authentication not available"
 
-  // 🔹 renamed to match your HTML button
-  async authenticateWithBiometric() {
-    try {
-      await NativeBiometric.verifyIdentity({
-        reason: 'For quick and secure login',
-        title: 'Biometric Authentication',
-      });
+      return;
+    }
 
-      // If it doesn’t throw → authentication was successful
-      this.status = '✅ Authenticated successfully!';
-    } catch (err) {
-      this.status = '❌ Authentication failed: ' + err;
+    if (result.biometryType === BiometryType.FACE_ID) {
+      console.log("✅ Face ID is available");
+            this.status= " Face ID is available"
+
+    } else {
+      console.log("Available biometrics:", result.biometryType);
+            this.status= "Available biometrics:", result.biometryType
+
     }
   }
-//   async checkBiometric() {
-//     const result = await NativeBiometric.isAvailable();
 
-//     if (!result.isAvailable) {
-//       console.log("❌ Biometric authentication not available");
-//       return;
-//     }
-
-//     switch (result.biometryType) {
-//       case BiometryType.FACE_ID:
-//         console.log("✅ iOS Face ID available");
-//         break;
-//       case BiometryType.FINGERPRINT:
-//         console.log("✅ Fingerprint available (Android/iOS)");
-//         break;
-//       case BiometryType.FACE_AUTHENTICATION:
-//         console.log("✅ Android Face Authentication available");
-//         break;
-//       default:
-//         console.log("ℹ️ Other biometric:", result.biometryType);
-//     }
-//   }
-
-//   async authenticateWithBiometric() {
-//     try {
-//       await NativeBiometric.verifyIdentity({
-//         reason: "Log in securely",
-//         title: "Biometric Authentication",
-//         subtitle: "Secure Login",
-//         description: "Use biometrics to log in",
-//       });
-
-//       console.log("🎉 Authenticated with biometrics!");
-// this.status ="Authenticated with biometrics"
-//     } catch (error) {
-//       console.log("❌ Authentication failed:", error);
-//       this.status =" Authentication failed"
-
-//     }
-//   }
-
+  async authenticateWithFaceID() {
+    try {
+      await NativeBiometric.verifyIdentity({
+        reason: "Log in with Face ID",
+        title: "Face ID Authentication",
+        subtitle: "Secure Login",
+        description: "Use Face ID to quickly log in",
+      });
+      this.status= " Authenticated with Face ID!"
+      console.log("🎉 Authenticated with Face ID!");
+    } catch (error) {
+      console.log("❌ Face ID failed:", error);
+       this.status= " Face ID failed",error
+    }
+  }
 }
-
