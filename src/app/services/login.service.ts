@@ -9,35 +9,32 @@ const defaultUser = null;
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-  })
+  }),
 };
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   public user$ = new BehaviorSubject<any | null>(defaultUser);
   baseUrl: string = environment.apiRootURL;
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {}
 
+  public changePassword(userId: number, password: string) {
+    const url = `${
+      this.baseUrl
+    }UpdateUser?userId=${userId}&password=${encodeURIComponent(password)}`;
+    return this.httpClient.post<any>(url, {});
   }
 
-public changePassword(userId: number, password: string) {
-  const url = `${this.baseUrl}UpdateUser?userId=${userId}&password=${encodeURIComponent(password)}`;
-  return this.httpClient.post<any>(url, {});
-}
-
-
-
-
-  public loginRequest(data1: any) {  
+  public loginRequest(data1: any) {
     return this.httpClient.post<any>(this.baseUrl + 'Login', data1).pipe(
-      tap(response => {  
-        if (response.valid) { 
+      tap((response) => {
+        if (response.valid) {
           localStorage.setItem('userDetails', JSON.stringify(response.result));
         }
       }),
-      catchError(error => {
-        return of(null); 
+      catchError((error) => {
+        return of(null);
       })
     );
   }
@@ -47,5 +44,28 @@ public changePassword(userId: number, password: string) {
     this.user$.next(defaultUser);
     // this.storage.clear();
   }
-
+  public LoginUpdateWithImg(data1: any) {
+    return this.httpClient.post<any>(this.baseUrl + 'UpdateImg', data1).pipe(
+      tap((response) => {
+        if (response.valid) {
+          localStorage.setItem('userDetails', JSON.stringify(response.result));
+        }
+      }),
+      catchError((error) => {
+        return of(null);
+      })
+    );
+  }
+  public loginRequestWithFaceImg(data1: any) {
+    return this.httpClient.post<any>(this.baseUrl + 'LoginByImg', data1).pipe(
+      tap((response) => {
+        if (response.valid) {
+          localStorage.setItem('userDetails', JSON.stringify(response.result));
+        }
+      }),
+      catchError((error) => {
+        return of(null);
+      })
+    );
+  }
 }
