@@ -77,20 +77,18 @@ export class RegisterUserComponent implements OnInit {
       FaceImage: this.photo, // base64 image string without prefix
     };
 
-    console.log('Submitting data:', formData);
     this.isLoading = true;
     this.apiLogin.LoginUpdateWithImg(formData).subscribe({
       next: (response: any) => {
         this.isLoading = false;
         if (response.success) {
           this.toastService.presentToast(response.message);
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         } else {
           this.toastService.presentToastErrror(response.message);
         }
       },
       error: (error) => {
-        console.error('Error while submitting:', error);
         this.toastService.presentToastErrror('Server error. Please try again.');
       },
     });
